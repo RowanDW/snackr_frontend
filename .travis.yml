@@ -12,4 +12,5 @@ deploy:
   app:
   run: rails db:migrate
   on:
+    repo: RowanDW/snackr_frontend
     branch: main
