@@ -13,6 +13,7 @@ Closes #
 
 * [ ] 100% Model Testing
 * [ ] 100% Feature Testing
+* [ ] 100% Other Testing (Services/Poros/etc.)
 
 If below 100%, what still needs testing:
 - x
