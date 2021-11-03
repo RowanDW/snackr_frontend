@@ -11,3 +11,5 @@ deploy:
   api_key:
   app:
   run: rails db:migrate
+  on:
+    branch: main
