@@ -33,47 +33,47 @@ More details can be found [here]()
 
 #### Development
 ![Atom][atom-badge]
-[![Bootstrap][bootstrap-badge]]
-[![Figaro][figaro-badge]]
-[![Git][git-badge]]
-[![GitHub][github-badge]]   
-[![Markdown][markdown-badge]]       
-[![PostgreSQL][postgreSQL-badge]]       
-[![Postico][postico-badge]]     
-[![Postman][postman-badge]]      
-[![Rubocop][rubocop-badge]]     
-[![Ruby on Rails][ruby-on-rails-badge]]
+![Bootstrap][bootstrap-badge]
+![Figaro][figaro-badge]
+![Git][git-badge]
+![GitHub][github-badge]
+![Markdown][markdown-badge]  
+![PostgreSQL][postgreSQL-badge]   
+![Postico][postico-badge]
+![Postman][postman-badge]
+![Rubocop][rubocop-badge]
+![Ruby on Rails][ruby-on-rails-badge]
 
 #### Languages
-[![ActiveRecord][activerecord-badge]]
-[![CSS3][css3-badge]]
-[![HTML5][html5-badge]]
-[![Ruby][ruby-badge]]
+![ActiveRecord][activerecord-badge]
+![CSS3][css3-badge]
+![HTML5][html5-badge]
+![Ruby][ruby-badge]
 
 #### Deployment
-[![Heroku][heroku-badge]]
-[![Travis CI][travis-ci-badge]]
-[![Faraday][faraday-badge]]
+![Heroku][heroku-badge]
+![Travis CI][travis-ci-badge]
+![Faraday][faraday-badge]
 
 #### Testing
-[![Capybara][capybara-badge]]
-[![Launchy][launchy-badge]]
-[![Pry][pry-badge]]
-[![RSpec][rspec-badge]]
-[![Shoulda Matchers][shoulda-matchers-badge]]
-[![Simplecov][simplecov-badge]]
-[![VCR][vcr-badge]]
-[![Webmock][webmock-badge]]
+![Capybara][capybara-badge]
+![Launchy][launchy-badge]
+![Pry][pry-badge]
+![RSpec][rspec-badge]
+![Shoulda Matchers][shoulda-matchers-badge]
+![Simplecov][simplecov-badge]
+![VCR][vcr-badge]
+![Webmock][webmock-badge]
 
 #### Development Principles
-[![OOP][oop-badge]]
-[![TDD][tdd-badge]]
-[![MVC][mvc-badge]]
-[![REST][rest-badge]]
+![OOP][oop-badge]
+![TDD][tdd-badge]
+![MVC][mvc-badge]
+![REST][rest-badge]
 
 
 ### Contributors
-[![LinkedIn][linkedin-badge]]
+![LinkedIn][linkedin-badge]
 
 - [Rowan DeLong](https://www.linkedin.com/in/rowandelong/)
 - [Jamie Pace](https://www.linkedin.com/in/jamiejpace/)
@@ -81,7 +81,7 @@ More details can be found [here]()
 - [Michael Mattson](https://www.linkedin.com/in/michael-p-mattson/)
 - [Kelsey Thompson](https://www.linkedin.com/in/knthompson2/)
 
-[![Github][github-badge]]
+![Github][github-badge]
 
 - [Rowan DeLong](https://github.com/RowanDW)
 - [Jamie Pace](https://github.com/jamiejpace)
