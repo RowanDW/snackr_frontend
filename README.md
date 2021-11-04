@@ -32,7 +32,7 @@ More details can be found [here]()
 - Rails 5.2.5
 
 #### Development
-[![Atom][atom-badge]]
+![Atom][atom-badge]
 [![Bootstrap][bootstrap-badge]]
 [![Figaro][figaro-badge]]
 [![Git][git-badge]]
