@@ -3,7 +3,7 @@
 
 ## Table of contents
 - [Overview](#overview)
-- [Learning Goals](#learning-goals)
+- [Example wireframes](#example-wireframes)
 - [Setup](#setup)
 - [Schema](#schema)
 - [Technologies](#technologies)
@@ -13,17 +13,9 @@
 
 [Snackr]()
 
-[Example wireframes]()
-
-### Learning Goals
-
-
-More details can be found [here]()
+### Example wireframes
 
 ### Setup
-
-### Schema
-![Schema Screenshot]()
 
 ### Technologies
 
