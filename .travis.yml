@@ -6,13 +6,5 @@ addons:
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
-deploy:
-  provider: heroku
-  api_key:
-  app:
-  run: rails db:migrate
-  on:
-    repo: RowanDW/snackr_frontend
-    branch: main
 before_install:
     - gem install bundler
