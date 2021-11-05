@@ -10,7 +10,8 @@ RSpec.describe BackendService do
     #       "type": "meal",
     #       "attributes": {
     #         "name": "Avocado toast",
-    #         "rank": 8
+    #         "rank": 8,
+    #         "meal_time": "2012-03-05, 00:00:00"
     #       },
     #       "relationships": {
     #         "food_entries": {
@@ -59,6 +60,9 @@ RSpec.describe BackendService do
 
     expect(first_meal[:attributes]).to have_key :rank
     expect(first_meal[:attributes][:rank]).to be_a Integer
+
+    expect(first_meal[:attributes]).to have_key :meal_time
+    expect(first_meal[:attributes][:meal_time]).to be_a String
 
     expect(first_meal).to have_key :relationships
     expect(first_meal[:relationships]).to be_a Hash
@@ -266,7 +270,7 @@ RSpec.describe BackendService do
     response = BackendService.login_user('rowan@test.com', 'rowan', '12345')
     # {
     #   "data": {
-    #     'id':  1,
+    #     'id':  '1',
     #     'type': 'user',
     #     'attributes': {
     #       'name': "name"
