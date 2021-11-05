@@ -3,6 +3,39 @@ require 'rails_helper'
 RSpec.describe BackendService do
   xit "can get meals for a user with a given date" do
     #Does this need a meal_time attribute?
+    # {
+    #   "data": [
+    #     {
+    #       "id": "1",
+    #       "type": "meal",
+    #       "attributes": {
+    #         "name": "Avocado toast",
+    #         "rank": 8
+    #       },
+    #       "relationships": {
+    #         "food_entries": {
+    #           "data": [
+    #             {
+    #               "id": 1,
+    #               "meal_id": 1,
+    #               "food_id": 12345,
+    #               "name": "bread"
+    #             },
+    #             {
+    #               "id": 2,
+    #               "meal_id": 1,
+    #               "food_id": 68762,
+    #               "name": "avocado"
+    #             }
+    #           ]
+    #         }
+    #       }
+    #     }
+    #   ]
+    # }
+
+
+
     response = BackendService.get_meals
 
     expect(response).to be_a Hash
@@ -59,6 +92,17 @@ RSpec.describe BackendService do
     }
     response = BackendService.new_meal(meal_hash)
 
+    # {
+    #   "data": {
+    #     "id": "12",
+    #     "type": "meal",
+    #     "attributes": {
+    #       "name": "Spaghetti",
+    #       "meal_time": "2012-03-05, 00:00:00",
+    #       "rank": -1
+    #     }
+    #   }
+    # }
     expect(response).to be_a Hash
 
     expect(response).to have_key :data
@@ -91,7 +135,18 @@ RSpec.describe BackendService do
       "meal_id": 18,
     }
     response = BackendService.update_meal(meal_hash)
-
+    #
+    # {
+    #   "data": {
+    #     "id": "12",
+    #     "type": "meal",
+    #     "attributes": {
+    #       "name": "Spaghetti",
+    #       "meal_time": "2012-03-05, 00:00:00",
+    #       "rank": 7
+    #     }
+    #   }
+    # }
     expect(response).to be_a Hash
 
     expect(response).to have_key :data
@@ -120,6 +175,26 @@ RSpec.describe BackendService do
 
   xit "can get a list of a users ranked foods" do
     response = BackendService.get_foods
+    # {
+    #   "data": [
+    #     {
+    #       "id": "1",
+    #       "type": "food_entry",
+    #       "attributes": {
+    #         "name": "Avocado",
+    #         "average_rank": 8.5
+    #       }
+    #     },
+    #     {
+    #       "id": "8",
+    #       "type": "food_entry",
+    #       "attributes": {
+    #         "name": "Chocolate",
+    #         "average_rank": 8.3
+    #       }
+    #     }
+    #   ]
+    # }
 
     expect(response).to be_a Hash
 
@@ -146,6 +221,26 @@ RSpec.describe BackendService do
 
   xit "can search for foods" do
     response = BackendService.food_search('hamburger+helper')
+    # {
+    #   "data": [
+    #     {
+    #       "type": "food",
+    #       "attributes": {
+    #         "name": "Avocado",
+    #         "food_id": "food_98u23mokdjfkbqkjsdfjk",
+    #         "brand": "Haas"
+    #       }
+    #     },
+    #     {
+    #       "type": "food",
+    #       "attributes": {
+    #         "name": "Avocado",
+    #         "food_id": "food_lkjasdf908uw3rkjbasfkh",
+    #         "brand": "NotHaas"
+    #       }
+    #     }
+    #   ]
+    # }
 
     expect(response).to be_a Hash
 
@@ -169,6 +264,15 @@ RSpec.describe BackendService do
 
   xit "can login a user" do
     response = BackendService.login_user('rowan@test.com', 'rowan', '12345')
+    # {
+    #   "data": {
+    #     'id':  1,
+    #     'type': 'user',
+    #     'attributes': {
+    #       'name': "name"
+    #     }
+    #   }
+    # }
 
     expect(response).to be_a Hash
 
