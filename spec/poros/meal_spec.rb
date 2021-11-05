@@ -14,7 +14,7 @@ RSpec.describe Meal do
     expect(@meal.foods).to eq([])
   end
 
-  it ".create_foods" do
+  it ".create_food_entries" do
     foods = [{"id": 1,
               "meal_id": 1,
               "food_id": 12345,
@@ -26,9 +26,9 @@ RSpec.describe Meal do
               "food_id": 68762,
               "name": "avocado"
             }]
-    result = @meal.create_foods(foods)
+    result = @meal.create_food_entries(foods)
     expect(result.size).to eq(2)
-    expect(result.first).to be_a Food
+    expect(result.first).to be_a FoodEntry
     expect(result.first.name).to eq("bread")
   end
 end

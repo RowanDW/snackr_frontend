@@ -1,9 +1,9 @@
 class Food
 
-  attr_reader :id, :name, :average_rank
+  attr_reader :food_id, :name, :brand
   def initialize(food_attrs)
-    @id = food_attrs[:id]
+    @food_id = food_attrs[:food_id]
     @name = food_attrs[:name]
-    @average_rank = food_attrs[:average_rank] 
+    @brand = food_attrs[:brand]
   end
 end
