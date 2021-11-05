@@ -9,7 +9,8 @@ RSpec.describe 'BackendFacade' do
             "type": "meal",
             "attributes": {
               "name": "Avocado toast",
-              "rank": 8
+              "rank": 8,
+              "meal_time": "2012-03-05, 00:00:00"
             },
             "relationships": {
               "food_entries": {

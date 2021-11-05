@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Meal do
   before :each do
-    attrs = {id: 1, name: 'breakfast', rank: 6}
+    attrs = {id: 1, name: 'breakfast', rank: 6, meal_time: "2012-03-05, 00:00:00"}
     @meal = Meal.new(attrs)
   end
 
@@ -11,6 +11,7 @@ RSpec.describe Meal do
     expect(@meal.id).to eq(1)
     expect(@meal.name).to eq('breakfast')
     expect(@meal.rank).to eq(6)
+    expect(@meal.meal_time).to eq("2012-03-05, 00:00:00")
     expect(@meal.foods).to eq([])
   end
 
