@@ -4,18 +4,20 @@
 ## Table of contents
 - [Overview](#overview)
 - [Example wireframes](#example-wireframes)
-- [Setup](#setup)
 - [Schema](#schema)
 - [Technologies](#technologies)
 - [Contributors](#contributors)
 
 ### Overview
 
-[Snackr]()
+[Snackr](https://snackr-trackr.herokuapp.com) is a food tracking app that rates users' experience after meals. The app is built using a service oriented architecture. For a more detailed explanation of the endpoints used, please visit our [backend repo](https://github.com/RowanDW/snackr_backend).
 
 ### Example wireframes
-
-### Setup
+![Root Page](https://user-images.githubusercontent.com/826189/140439913-d8d5ec89-1777-4211-b308-c61fcc691112.png)
+![Dashboard](https://user-images.githubusercontent.com/826189/140439956-63e892eb-7049-4d6d-ba3c-c67e55c03d50.png)
+![Rating Page](https://user-images.githubusercontent.com/826189/140439993-4034ff4f-fa99-4118-a034-168f1bcfb97f.png)
+![Search Page](https://user-images.githubusercontent.com/826189/140440017-d72514c9-ed1b-494e-85ae-75bdc473cbea.png)
+![Meal Page](https://user-images.githubusercontent.com/826189/140440026-a9572a54-445e-4503-ba7c-34ccbbd53b8a.png)
 
 ### Technologies
 
