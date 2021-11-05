@@ -69,17 +69,17 @@
 ![LinkedIn][linkedin-badge]
 
 - [Rowan DeLong](https://www.linkedin.com/in/rowandelong/)
+- [Michael Mattson](https://www.linkedin.com/in/michael-p-mattson/)
 - [Jamie Pace](https://www.linkedin.com/in/jamiejpace/)
 - [Samantha Peterson](https://www.linkedin.com/in/samantha-peterson-15b18220b/)
-- [Michael Mattson](https://www.linkedin.com/in/michael-p-mattson/)
 - [Kelsey Thompson](https://www.linkedin.com/in/knthompson2/)
 
 ![Github][github-badge]
 
 - [Rowan DeLong](https://github.com/RowanDW)
+- [Michael Mattson](https://github.com/michaelpmattson)
 - [Jamie Pace](https://github.com/jamiejpace)
 - [Samantha Peterson](https://github.com/sami-p)
-- [Michael Mattson](https://github.com/michaelpmattson)
 - [Kelsey Thompson](https://github.com/knthompson2)
 
 
