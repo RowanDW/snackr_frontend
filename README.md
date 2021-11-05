@@ -4,7 +4,6 @@
 ## Table of contents
 - [Overview](#overview)
 - [Example wireframes](#example-wireframes)
-- [Schema](#schema)
 - [Technologies](#technologies)
 - [Contributors](#contributors)
 
