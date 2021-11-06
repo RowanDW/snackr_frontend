@@ -8,4 +8,9 @@ RSpec.describe 'visiting the meal builder' do
   it 'has a button to add foods to the meal' do
     expect(page).to have_button('Add food')
   end
+
+  it 'has a form to add the meal time' do
+    expect(page).to have_field(:meal_time)
+    expect(page).to have_button('Save meal')
+  end
 end
