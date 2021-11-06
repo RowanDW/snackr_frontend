@@ -5,7 +5,7 @@ addons:
   postgresql: 9.6
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
-- rails webpacker:install
+- bundle exec rails webpacker:install
 - bundle exec rspec
 before_install:
     - gem install bundler
