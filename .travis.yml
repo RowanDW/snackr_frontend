@@ -5,6 +5,7 @@ addons:
   postgresql: 9.6
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
+- nvm install 16.10.0
 - bundle exec rails webpacker:install
 - bundle exec rspec
 before_install:
