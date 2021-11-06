@@ -35,7 +35,7 @@ RSpec.describe 'BackendFacade' do
       }
     allow(BackendService).to receive(:get_meals).and_return(mock_response)
 
-    meals = BackendFacade.get_meals
+    meals = BackendFacade.get_meals(1)
 
     expect(meals).to be_a Array
     expect(meals.size).to eq(1)
@@ -66,7 +66,7 @@ RSpec.describe 'BackendFacade' do
 
     allow(BackendService).to receive(:get_foods).and_return(mock_response)
 
-    meals = BackendFacade.get_foods
+    meals = BackendFacade.get_foods(1)
 
     expect(meals).to be_a Array
     expect(meals.size).to eq(2)

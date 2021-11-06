@@ -266,8 +266,8 @@ RSpec.describe BackendService do
     expect(first_food[:attributes][:name]).to be_a String
   end
 
-  xit "can login a user" do
-    response = BackendService.login_user('rowan@test.com', 'rowan', '12345')
+    it "can login a user", :vcr do
+    response = BackendService.login_user('rowantestcom', 'rowan', '12345')
     # {
     #   "data": {
     #     'id':  '1',
