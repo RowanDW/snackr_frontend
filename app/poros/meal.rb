@@ -15,4 +15,10 @@ class Meal
       FoodEntry.new(food_attrs)
     end
   end
+
+  def food_names
+    @foods.map do |food|
+      food.name
+    end
+  end
 end
