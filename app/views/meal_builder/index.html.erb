@@ -1,1 +1,6 @@
+<%= form_with url: '/search_food', method: :get do |f| %>
+  <%= f.datetime_local_field :meal_time %><br>
+  <%= f.submit               'Save meal' %>
+<% end %>
+
 <%= button_to 'Add food', search_food_path %>
