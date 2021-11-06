@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get  "/auth/:provider/callback", to: 'sessions#omniauth'
   get '/dashboard', to: 'dashboard#index'
 
-  get '/meal_builder', to: 'meal_builder#index'
   get '/food_search', to: 'food_search#index'
+
+  get '/meal_builder', to: 'meal_builder#index'
+  get '/meal_rating',  to: 'meal_rating#index'
 end

@@ -69,4 +69,11 @@ RSpec.describe 'The dashboard' do
     click_button('Add a meal')
     expect(current_path).to eq(meal_builder_path)
   end
+
+  it 'has a button that takes user to the meal rating page' do
+    visit dashboard_path
+
+    click_button('Rate meals')
+    expect(current_path).to eq(meal_rating_path)
+  end
 end
