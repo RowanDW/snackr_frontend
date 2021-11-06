@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   get  "/auth/:provider/callback", to: 'sessions#omniauth'
   get '/dashboard', to: 'dashboard#index'
+
+  get '/meal_builder', to: 'meal_builder#index'
+  get '/search_food', to: 'search_food#index'
 end
