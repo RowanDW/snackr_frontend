@@ -10,3 +10,4 @@ script:
 before_install:
     - gem install bundler
     - npm install -g yarn
+    - yarn install
