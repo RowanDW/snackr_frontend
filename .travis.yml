@@ -9,3 +9,4 @@ script:
 - bundle exec rspec
 before_install:
     - gem install bundler
+    - yarn install
