@@ -26,16 +26,34 @@ RSpec.describe Meal do
     expect(@meal.foods).to eq([])
   end
 
-  it ".create_food_entries" do
+  it "#create_food_entries" do
     result = @meal.create_food_entries(@food_attrs)
     expect(result.size).to eq(2)
     expect(result.first).to be_a FoodEntry
     expect(result.first.name).to eq("bread")
   end
 
-  it "can list food names" do
+  it "#food_names" do
     meal2 = Meal.new(@attrs, @food_attrs)
 
     expect(meal2.food_names).to eq(["bread", "avocado"])
+  end
+
+  it '#food_entry_by_food_id' do
+    meal2 = Meal.new(@attrs, @food_attrs)
+
+    expect(meal2.food_entry_by_food_id(12345)).to be_a(FoodEntry)
+    expect(meal2.food_entry_by_food_id(12345).name).to eq('bread')
+  end
+
+  it '#remove_food_by_food_id' do
+    meal2 = Meal.new(@attrs, @food_attrs)
+
+    expect(meal2.foods.count).to be(2)
+    expect(meal2.food_entry_by_food_id(12345)).to_not be_nil
+
+    meal2.remove_food_by_food_id(12345)
+    expect(meal2.foods.count).to be(1)
+    expect(meal2.food_entry_by_food_id(12345)).to be_nil
   end
 end
