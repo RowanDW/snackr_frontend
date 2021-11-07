@@ -32,4 +32,8 @@ class Meal
     food = food_entry_by_food_id(food_id)
     foods.delete(food)
   end
+
+  def add_food_entry(food_params)
+    @foods << FoodEntry.new(food_params)
+  end
 end

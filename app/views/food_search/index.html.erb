@@ -4,7 +4,7 @@
   <%= f.submit 'Search' %>
 <% end %>
 <% @foods&.each do |food| %>
-<div id="food <%= food.id %>">
-  <%= food.name %> <%= button_to "Add to Meal", meal_builder_path %><br>
+<div id="food-<%= food.id %>">
+  <%= food.name %> <%= button_to "Add to Meal", foods_path, params: {food_id: food.id, food_name: food.name} %><br>
 </div>
 <% end %>

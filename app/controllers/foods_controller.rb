@@ -1,4 +1,18 @@
 class FoodsController < ApplicationController
+
+  def create
+    food_params = {food_id: params[:food_id], name: params[:food_name]}
+    if cookies[:meal].nil?
+      meal = Meal.new({})
+    else
+      meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
+      meal       = Meal.new(meal_data, meal_data[:attributes][:foods])
+    end
+    meal.add_food_entry(food_params)
+    reset_meal(meal)
+    redirect_to(meal_builder_path)
+  end
+
   def destroy
     meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
     meal       = Meal.new(meal_data, meal_data[:attributes][:foods])
@@ -11,7 +25,7 @@ class FoodsController < ApplicationController
   private
 
   def reset_meal(meal)
-    cookies[:meal].clear
+    cookies[:meal]&.clear
     cookies[:meal] = MealSerializer.new(meal).serializable_hash.to_json
   end
 end

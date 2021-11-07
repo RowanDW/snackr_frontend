@@ -26,6 +26,35 @@ RSpec.describe 'Food Search Page' do
     expect(current_path).to eq(food_search_path)
   end
 
+  it 'can add a food to a new or already exhisting meal' do
+    mock_response = File.read('spec/fixtures/responses/food_search.json')
+    allow(BackendService).to receive(:food_search).and_return(JSON.parse(mock_response, symbolize_names: true))
+
+    visit food_search_path
+
+    fill_in :search, with: "Blueberries"
+    click_on "Search"
+
+    within '#food-1' do
+      click_button('Add to Meal')
+    end
+
+    expect(current_path).to eq(meal_builder_path)
+    expect(page).to have_content("Blueberries")
+
+    click_on 'Add food'
+
+    fill_in :search, with: "Blueberries"
+    click_on "Search"
+
+    within '#food-2' do
+      click_button('Add to Meal')
+    end
+
+    expect(current_path).to eq(meal_builder_path)
+    expect(page).to have_content("Wild Blueberries")
+  end
+
   xit 'will return an error message if search params are empty' do
     visit food_search_path
 
