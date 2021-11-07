@@ -56,4 +56,11 @@ RSpec.describe Meal do
     expect(meal2.foods.count).to be(1)
     expect(meal2.food_entry_by_food_id(12345)).to be_nil
   end
+
+  it '#add_food_entry' do
+    expect(@meal.foods.count).to eq(0)
+    @meal.add_food_entry(@food_attrs.first)
+    expect(@meal.foods.count).to eq(1)
+    expect(@meal.foods.first).to be_a FoodEntry
+  end
 end
