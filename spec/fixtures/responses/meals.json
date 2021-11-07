@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "meal",
+      "attributes": {
+        "name": "Breakfast",
+        "rank": 8,
+        "meal_time": "2012-03-05T06:30:00+00:00"
+      },
+      "relationships": {
+        "food_entries": {
+          "data": [
+            {
+              "id": 1,
+              "meal_id": 1,
+              "food_id": 12345,
+              "name": "bread"
+            },
+            {
+              "id": 2,
+              "meal_id": 1,
+              "food_id": 68762,
+              "name": "avocado"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "2",
+      "type": "meal",
+      "attributes": {
+        "name": "Lunch",
+        "rank": -1,
+        "meal_time": "2012-03-05T12:00:00+00:00"
+      },
+      "relationships": {
+        "food_entries": {
+          "data": [
+            {
+              "id": 3,
+              "meal_id": 2,
+              "food_id": 12345,
+              "name": "bread"
+            },
+            {
+              "id": 4,
+              "meal_id": 2,
+              "food_id": 68762,
+              "name": "avocado"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

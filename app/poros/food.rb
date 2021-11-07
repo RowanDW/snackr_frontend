@@ -1,9 +1,7 @@
 class Food
-
-  attr_reader :id, :name, :brand
+  attr_reader :id, :name
   def initialize(food_attrs)
     @id = food_attrs[:id]
     @name = food_attrs[:name]
-    @brand = food_attrs[:brand]
   end
 end

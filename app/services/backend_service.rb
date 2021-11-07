@@ -1,22 +1,22 @@
 class BackendService
 
-  def self.get_meals(date = DateTime.current.beginning_of_day)
-    response = conn.get("api/v1/users/#{session[:user_id]}/meals?date=#{query}")
+  def self.get_meals(user_id, date = DateTime.current.beginning_of_day)
+    response = conn.get("api/v1/users/#{user_id}/meals?date=#{date}")
     parse_json(response)
   end
 
-  def self.new_meal(meal_hash)
-    response = conn.post("api/v1/users/#{session[:user_id]}/meals", meal_hash)
+  def self.new_meal(user_id, meal_hash)
+    response = conn.post("api/v1/users/#{user_id}/meals", meal_hash)
     parse_json(response)
   end
 
-  def self.update_meal(meal_hash)
-    response = conn.patch("api/v1/users/#{session[:user_id]}/meals", meal_hash)
+  def self.update_meal(user_id, meal_hash)
+    response = conn.patch("api/v1/users/#{user_id}/meals", meal_hash)
     parse_json(response)
   end
 
-  def self.get_foods()# PARAMS NEED TO BE FIGURED OUT
-    response = conn.get("api/v1/users/#{session[:user_id]}/foods")
+  def self.get_foods(user_id)# PARAMS NEED TO BE FIGURED OUT
+    response = conn.get("api/v1/users/#{user_id}/foods")
     parse_json(response)
   end
 
@@ -26,7 +26,7 @@ class BackendService
   end
 
   def self.login_user(email, name, token)
-    response = conn.get("api/v1/users?email=#{user_info}&name=#{name}&access_token=#{token}")
+    response = conn.get("api/v1/users", {email: email, name: name, access_token: token})
     parse_json(response)
   end
 
