@@ -1,35 +1,37 @@
 require 'rails_helper'
 
 RSpec.describe 'Food Search Page' do
-  it 'returns a list of foods based on search params' do
-    stub_request(:get, food_search_path("Reese's Puffs")).
-      to_return(:body => {
-                          "data": [
-                            {
-                              "type": "food",
-                              "attributes": {
-                                "name": "Reese's Puffs",
-                                "id": "rpuffs12",
-                              }
-                            },
-                            {
-                              "type": "food",
-                              "attributes": {
-                                "name": "Reese's Pieces",
-                                "id": "rpieces13",
-                              }
-                            }
-                            ]
-                          })
-    save_and_open_page
-    expect(page).to have_content("Reese's Pieces") #
+  before :each do
+    allow_any_instance_of(ApplicationController).to receive(:current_user_id).and_return(1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user_name).and_return("Duke")
+    allow(DateTime).to receive(:current).and_return('2021-11-06T00:14:46:00:00'.to_date)
   end
 
-  it 'will return an error message if food sear' do
+  it 'has search bar to search food by name' do
+    visit food_search_path
+
+    expect(page).to have_field(:search)
+  end
+
+  it 'returns a list of foods based on search params' do
+    mock_response = File.read('spec/fixtures/responses/food_search.json')
+    allow(BackendService).to receive(:food_search).and_return(JSON.parse(mock_response, symbolize_names: true))
+
+    visit food_search_path
+
+    fill_in :search, with: "Blueberries"
+    click_on "Search"
+
+    expect(page).to have_content("Blueberries")
+    expect(current_path).to eq(food_search_path)
+  end
+
+  xit 'will return an error message if search params are empty' do
+    visit food_search_path
+
+    click_on "Search"
+
+    expect(current_path).to eq(food_search_path)
     expect(page).to have_content("Invalid search. Please try again.")
   end
-
-  xit 'displays a list of users favorite foods' do
-  end
 end
-# Use Webmock instead of VCR because we do not have access to API yet
