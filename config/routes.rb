@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
   get '/meal_builder', to: 'meal_builder#index'
-  get '/search_food', to: 'search_food#index'
+  get '/food_search', to: 'food_search#index'
 end
