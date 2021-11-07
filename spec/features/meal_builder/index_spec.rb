@@ -19,17 +19,17 @@ RSpec.describe 'visiting the meal builder' do
   end
 
   it 'has a delete button next to each food' do
-    within '#food-1' do
+    within '#food-123' do
       expect(page).to have_content('Meatballs')
       expect(page).to have_button('Delete')
     end
 
-    within '#food-2' do
+    within '#food-456' do
       expect(page).to have_content('Spaghetti')
       expect(page).to have_button('Delete')
     end
 
-    within '#food-1' do
+    within '#food-123' do
       click_button('Delete')
     end
 
