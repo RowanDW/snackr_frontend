@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/meal_builder', to: 'meal_builder#index'
   get '/meal_rating',  to: 'meal_rating#index'
+
+  resources :foods, only: :destroy
 end
