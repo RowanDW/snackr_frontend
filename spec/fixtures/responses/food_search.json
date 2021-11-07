@@ -1,0 +1,18 @@
+{
+  "data" : [
+    {
+      "id" : "1",
+      "type" : "food",
+      "attributes" : {
+        "name" : "Blueberries"
+      }
+    },
+    {
+      "id" : "2",
+      "type" : "food",
+      "attributes" : {
+        "name" : "Wild Blueberries"
+      }
+    }
+    ]
+}
