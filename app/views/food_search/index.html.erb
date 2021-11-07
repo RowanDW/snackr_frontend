@@ -1,0 +1,10 @@
+<h1>Food Search</h1>
+<%= form_with url: food_search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :search %>
+  <%= f.submit 'Search' %>
+<% end %>
+<% @foods&.each do |food| %>
+<div id="food <%= food.id %>">
+  <%= food.name %> <%= button_to "Add to Meal", meal_builder_path %><br>
+</div>
+<% end %>

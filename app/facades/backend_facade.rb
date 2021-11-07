@@ -25,7 +25,7 @@ class BackendFacade
     query.gsub!(' ', '+')
     foods = BackendService.food_search(query)
     foods[:data].map do |food|
-      food_attrs = {food_id: food[:attributes][:food_id], name: food[:attributes][:name], brand: food[:attributes][:brand]}
+      food_attrs = {id: food[:id], name: food[:attributes][:name], brand: food[:attributes][:brand]}
       Food.new(food_attrs)
     end
   end
