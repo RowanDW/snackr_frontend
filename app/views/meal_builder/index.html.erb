@@ -1,3 +1,10 @@
+<% @foods.each do |food| %>
+  <div id="food-<%= food[:id] %>">
+    <%= food[:name] %>
+    <%= button_to 'Delete', food_path(food[:id]), method: :delete %>
+  </div>
+<% end %>
+
 <%= form_with url: '/search_food', method: :get do |f| %>
   <%= f.datetime_local_field :meal_time %><br>
   <%= f.submit               'Save meal' %>

@@ -1,0 +1,23 @@
+{
+  "data":{
+    "id": null,
+    "type": "meal",
+    "attributes": {
+      "name": null,
+      "rank": null,
+      "foods": [
+        {
+          "id": 1,
+          "name": "Meatballs",
+          "average_rank": null
+        },
+        {
+          "id": 2,
+          "name": "Spaghetti",
+          "average_rank": null
+        }
+      ],
+      "meal_time": null
+    }
+  }
+}
