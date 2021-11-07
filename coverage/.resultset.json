@@ -305,8 +305,133 @@
           1,
           null
         ]
+      },
+      "/Users/samanthapeterson/turing/3mod2107/projects/snackr_frontend/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/samanthapeterson/turing/3mod2107/projects/snackr_frontend/app/controllers/food_search_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          3,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/samanthapeterson/turing/3mod2107/projects/snackr_frontend/app/services/backend_service.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/samanthapeterson/turing/3mod2107/projects/snackr_frontend/app/facades/backend_facade.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/samanthapeterson/turing/3mod2107/projects/snackr_frontend/app/poros/food.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1636235687
+    "timestamp": 1636309984
   }
 }
