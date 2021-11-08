@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
   def current_user_name
     session[:name]
   end
+
+  private
+
+  def reset_meal(meal)
+    cookies[:meal]&.clear
+    cookies[:meal] = MealSerializer.new(meal).serializable_hash.to_json
+  end
 end

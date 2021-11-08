@@ -35,4 +35,15 @@ RSpec.describe 'visiting the meal builder' do
 
     expect(current_path).to eq(meal_builder_path)
   end
+
+  it 'can save the meal' do
+    fill_in(:meal_name, with: 'Spaghetti & Meatballs')
+    fill_in(:meal_time, with: '2021-11-26T18:32' )
+    click_button('Save meal')
+
+    expect(current_path).to eq(dashboard_path)
+    within('#todays-meals') do
+      expect(page).to have_content('Spaghetti & Meatballs')
+    end
+  end
 end
