@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://snackr-backend.herokuapp.com/api/v1/users?access_token=12345&email=rowantestcom&name=rowan
+    uri: https://snackr-backend.herokuapp.com/api/v1/users/1/meals?date=2021-11-06%2000:00:00%20UTC
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 06 Nov 2021 18:51:06 GMT
+      - Tue, 09 Nov 2021 04:09:04 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -41,19 +41,19 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"7bc10b731e4c86da45265887378db2ec"
+      - W/"8fe32e407a1038ee38753b70e5374b3a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1575f716-4026-4c53-b6c7-dcdcf7e2329b
+      - db1c28d3-eb79-40e0-ae92-53df12271e52
       X-Runtime:
-      - '0.005326'
+      - '0.041812'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"1","type":"user","attributes":{"name":"rowan"}}}'
-  recorded_at: Sat, 06 Nov 2021 18:51:06 GMT
+      string: '{"data":[]}'
+  recorded_at: Tue, 09 Nov 2021 04:09:04 GMT
 recorded_with: VCR 6.0.0
