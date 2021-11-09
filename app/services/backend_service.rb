@@ -6,7 +6,13 @@ class BackendService
   end
 
   def self.new_meal(user_id, meal_hash)
-    response = conn.post("api/v1/users/#{user_id}/meals", meal_hash)
+    input = JSON.parse(meal_hash, symbolize_names: true)
+
+    response = conn.post do |req|
+      req.url "api/v1/users/#{user_id}/meals"
+      req.params = input
+    end
+
     parse_json(response)
   end
 

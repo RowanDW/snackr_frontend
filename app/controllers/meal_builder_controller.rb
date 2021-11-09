@@ -18,9 +18,11 @@ class MealBuilderController < ApplicationController
     meal       = Meal.new(meal_hash, meal_data[:attributes][:foods])
 
     reset_meal(meal)
-# binding.pry
+
+    # this response may not be necessary unless we want to use error message
     response = BackendService.new_meal(current_user_id, cookies[:meal])
 
+    cookies[:meal].clear
     redirect_to dashboard_path
   end
 end
