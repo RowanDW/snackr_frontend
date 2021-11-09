@@ -34,4 +34,13 @@ class BackendFacade
     user = BackendService.login_user(email, name, token)
     user[:data][:id]
   end
+
+  def self.get_graphs(user_id)
+    graphs = BackendService.get_graphs(user_id)
+    result = {}
+    graphs[:data].each do |graph|
+      result[graph[:attributes][:name]] = graph[:attributes][:uri]
+    end
+    result
+  end
 end
