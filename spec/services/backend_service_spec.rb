@@ -288,4 +288,48 @@ RSpec.describe BackendService do
     expect(response[:data][:attributes]).to have_key :name
     expect(response[:data][:attributes][:name]).to be_a String
   end
+
+  xit 'can get graphs for a user' do
+    response = BackendService.get_graphs(6)
+    # {
+    #   “data”: [
+    #     {
+    #       “id”: “1”,
+    #       “type”: “graph_uri”,
+    #       “attributes”: {
+    #         "name": "top_10"
+    #         “uri”: “/chart?blahblahblah”
+    #       }
+    #     },
+    #     {
+    #       “id”: “2",
+    #       “type”: “graph_uri”,
+    #       “attributes”: {
+    #         "name": "bottom_10"
+    #         “uri”: “/chart?blahblahblah”
+    #       }
+    #     }
+    #   ]
+    # }
+    expect(response).to be_a Hash
+
+    expect(response).to have_key :data
+    expect(response[:data]).to be_an Array
+
+    expect(response[:data]).to have_key :id
+    expect(response[:data][:id]).to be_a String
+
+    expect(response[:data]).to have_key :type
+    expect(response[:data][:type]).to eq('graph_uri')
+
+    expect(response[:data]).to have_key :attributes
+    expect(response[:data][:attributes]).to be_a Hash
+
+    expect(response[:data][:attributes]).to have_key :name
+    expect(response[:data][:attributes][:name]).to be_a String
+
+    expect(response[:data][:attributes]).to have_key :uri
+    expect(response[:data][:attributes][:uri]).to be_a String
+
+  end
 end
