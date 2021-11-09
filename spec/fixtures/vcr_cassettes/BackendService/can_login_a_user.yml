@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 06 Nov 2021 18:51:06 GMT
+      - Tue, 09 Nov 2021 02:53:23 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -45,9 +45,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1575f716-4026-4c53-b6c7-dcdcf7e2329b
+      - ea0bff46-e791-4cd6-8213-523fecf04032
       X-Runtime:
-      - '0.005326'
+      - '0.006049'
       Transfer-Encoding:
       - chunked
       Via:
@@ -55,5 +55,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"data":{"id":"1","type":"user","attributes":{"name":"rowan"}}}'
-  recorded_at: Sat, 06 Nov 2021 18:51:06 GMT
+  recorded_at: Tue, 09 Nov 2021 02:53:23 GMT
 recorded_with: VCR 6.0.0

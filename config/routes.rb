@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
   get '/meal_builder', to: 'meal_builder#index'
+  post '/meal_builder', to: 'meal_builder#create'
 
   get '/food_search', to: 'food_search#index'
 

@@ -6,11 +6,14 @@ class BackendService
   end
 
   def self.new_meal(user_id, meal_hash)
+    input = JSON.parse(meal_hash, symbolize_names: true)
+
     response = conn.post do |req|
       req.url "api/v1/users/#{user_id}/meals"
-      req.params = meal_hash
+      req.params = input
     end
-    result = parse_json(response)
+
+    parse_json(response)
   end
 
   def self.update_meal(user_id, meal_hash)

@@ -21,11 +21,4 @@ class FoodsController < ApplicationController
     reset_meal(meal)
     redirect_to(meal_builder_path)
   end
-
-  private
-
-  def reset_meal(meal)
-    cookies[:meal]&.clear
-    cookies[:meal] = MealSerializer.new(meal).serializable_hash.to_json
-  end
 end

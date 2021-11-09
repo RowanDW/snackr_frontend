@@ -35,4 +35,18 @@ RSpec.describe 'visiting the meal builder' do
 
     expect(current_path).to eq(meal_builder_path)
   end
+
+  it 'can save the meal', :vcr do
+    allow_any_instance_of(ApplicationController).to receive(:current_user_id).and_return(1)
+    allow(DateTime).to receive(:current).and_return('2021-11-09T00:14:46:00:00'.to_date)
+
+    fill_in(:meal_name, with: 'Spaghetti & Meatballs')
+    fill_in(:meal_time, with: '2021-11-09T18:32' )
+    click_button('Save meal')
+
+    expect(current_path).to eq(dashboard_path)
+    within('#todays-meals') do
+      expect(page).to have_content('Spaghetti & Meatballs')
+    end
+  end
 end
