@@ -1,6 +1,6 @@
 class BackendService
 
-  def self.get_meals(user_id, date = DateTime.current.beginning_of_day)
+  def self.get_meals(user_id, date = DateTime.current.in_time_zone)
     response = conn.get("api/v1/users/#{user_id}/meals?date=#{date}")
     parse_json(response)
   end
@@ -21,7 +21,6 @@ class BackendService
       req.url "api/v1/users/#{user_id}/meals"
       req.params = meal_hash
     end
-
     parse_json(response)
   end
 

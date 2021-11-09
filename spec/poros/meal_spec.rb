@@ -7,13 +7,13 @@ RSpec.describe Meal do
     @food_attrs = [{"id": 1,
               "meal_id": 1,
               "food_id": 12345,
-              "name": "bread"
+              "food_name": "bread"
             },
             {
               "id": 2,
               "meal_id": 1,
               "food_id": 68762,
-              "name": "avocado"
+              "food_name": "avocado"
             }]
   end
 
@@ -30,7 +30,7 @@ RSpec.describe Meal do
     result = @meal.create_food_entries(@food_attrs)
     expect(result.size).to eq(2)
     expect(result.first).to be_a FoodEntry
-    expect(result.first.name).to eq("bread")
+    expect(result.first.food_name).to eq("bread")
   end
 
   it "#food_names" do
@@ -43,7 +43,7 @@ RSpec.describe Meal do
     meal2 = Meal.new(@attrs, @food_attrs)
 
     expect(meal2.food_entry_by_food_id(12345)).to be_a(FoodEntry)
-    expect(meal2.food_entry_by_food_id(12345).name).to eq('bread')
+    expect(meal2.food_entry_by_food_id(12345).food_name).to eq('bread')
   end
 
   it '#remove_food_by_food_id' do
