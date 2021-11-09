@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'visiting the meal builder' do
   before(:each) do
-    spaghetti_data = File.read('spec/fixtures/responses/spaghetti.json')
-
-    allow_any_instance_of(ApplicationController).to receive(:cookies).and_return({ meal: spaghetti_data })
-
-    visit meal_builder_path
+    
   end
 
   it 'has a button to add foods to the meal' do
