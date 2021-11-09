@@ -292,25 +292,25 @@ RSpec.describe BackendService do
   xit 'can get graphs for a user' do
     response = BackendService.get_graphs(6)
     # {
-    #   “data”: [
-    #     {
-    #       “id”: “1”,
-    #       “type”: “graph_uri”,
-    #       “attributes”: {
-    #         "name": "top_10"
-    #         “uri”: “/chart?blahblahblah”
-    #       }
-    #     },
-    #     {
-    #       “id”: “2",
-    #       “type”: “graph_uri”,
-    #       “attributes”: {
-    #         "name": "bottom_10"
-    #         “uri”: “/chart?blahblahblah”
-    #       }
-    #     }
-    #   ]
-    # }
+    #    "data": [
+        #     {
+        #       "id": "1",
+        #       "type": "graph_uri",
+        #       "attributes": {
+        #         "name": "top_10",
+        #         "uri": "/chart?blahblahblah"
+        #       }
+        #     },
+        #     {
+        #       "id": "2",
+        #       "type": "graph_uri",
+        #       "attributes": {
+        #         "name": "bottom_10",
+        #         "uri": "/chart?blahblahblah"
+        #       }
+        #     }
+        #   ]
+        # }
     expect(response).to be_a Hash
 
     expect(response).to have_key :data

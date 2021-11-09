@@ -120,4 +120,34 @@ RSpec.describe 'BackendFacade' do
 
     expect(meals).to be_a String
   end
+
+  it "#get_graphs" do
+    mock_response = {
+      "data": [
+          {
+            "id": "1",
+            "type": "graph_uri",
+            "attributes": {
+              "name": "top_10",
+              "uri": "/chart?blahblahblah"
+            }
+          },
+          {
+            "id": "2",
+            "type": "graph_uri",
+            "attributes": {
+              "name": "bottom_10",
+              "uri": "/chart?blahblahblah"
+            }
+          }
+        ]
+      }
+
+    allow(BackendService).to receive(:get_graphs).and_return(mock_response)
+
+    graphs = BackendFacade.get_graphs(1)
+
+    expect(graphs).to be_a Hash
+    expect(graphs.size).to eq(2)
+  end
 end
