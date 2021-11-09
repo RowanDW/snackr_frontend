@@ -54,7 +54,6 @@ RSpec.describe 'The dashboard' do
     allow(BackendService).to receive(:get_meals).and_return({"data": []})
 
     visit dashboard_path
-    save_and_open_page
     within('#todays-meals') do
       expect(page).to have_content("Today's Meals")
       expect(page).to have_content("November 06, 2021")
