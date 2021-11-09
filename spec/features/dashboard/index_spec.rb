@@ -7,12 +7,11 @@ RSpec.describe 'The dashboard' do
     allow(DateTime).to receive(:current).and_return('2021-11-06T00:14:46+00:00'.to_date)
   end
 
-  xit "shows a list of todays meals" do
+  it "shows a list of todays meals" do
     mock_response = File.read('spec/fixtures/responses/meals.json')
     allow(BackendService).to receive(:get_meals).and_return(JSON.parse(mock_response, symbolize_names: true))
 
     visit dashboard_path
-
     within('#todays-meals') do
       expect(page).to have_content("Today's Meals")
       expect(page).to have_content("November 06, 2021")
@@ -51,11 +50,11 @@ RSpec.describe 'The dashboard' do
     end
   end
 
-  xit "shows a message if no meals have been logged" do
+  it "shows a message if no meals have been logged", :vcr do
     allow(BackendService).to receive(:get_meals).and_return({"data": []})
 
     visit dashboard_path
-
+    save_and_open_page
     within('#todays-meals') do
       expect(page).to have_content("Today's Meals")
       expect(page).to have_content("November 06, 2021")
@@ -63,7 +62,7 @@ RSpec.describe 'The dashboard' do
     end
   end
 
-  xit 'has a button that takes user to the meal builder' do
+  it 'has a button that takes user to the meal builder', :vcr do
     visit dashboard_path
 
     click_button('Add a meal')

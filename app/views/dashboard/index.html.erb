@@ -3,7 +3,7 @@
 <div id="todays-meals">
   <h3>Today's Meals - <%= @today.strftime('%B %d, %Y') %></h3>
 
-  <% if @meals.nil? %>
+  <% if @meals.count < 1 || @meals.nil? %>
     <p>You haven't logged any meals yet today</p>
   <% else %>
     <% @meals.each do |meal| %>
