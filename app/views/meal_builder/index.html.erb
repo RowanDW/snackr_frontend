@@ -1,6 +1,6 @@
 <% @foods&.each do |food| %>
   <div id="food-<%= food[:food_id] %>">
-    <%= food[:name] %>
+    <%= food[:food_name] %>
     <%= button_to 'Delete', food_path(food[:food_id]), method: :delete %>
   </div>
 <% end %>
