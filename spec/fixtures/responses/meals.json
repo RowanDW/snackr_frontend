@@ -15,13 +15,13 @@
               "id": 1,
               "meal_id": 1,
               "food_id": 12345,
-              "name": "bread"
+              "food_name": "bread"
             },
             {
               "id": 2,
               "meal_id": 1,
               "food_id": 68762,
-              "name": "avocado"
+              "food_name": "avocado"
             }
           ]
         }
@@ -42,13 +42,13 @@
               "id": 3,
               "meal_id": 2,
               "food_id": 12345,
-              "name": "bread"
+              "food_name": "bread"
             },
             {
               "id": 4,
               "meal_id": 2,
               "food_id": 68762,
-              "name": "avocado"
+              "food_name": "avocado"
             }
           ]
         }

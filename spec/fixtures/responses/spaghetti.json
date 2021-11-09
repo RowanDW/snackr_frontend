@@ -8,13 +8,13 @@
       "foods": [
         {
           "id": 1,
-          "name": "Meatballs",
+          "food_name": "Meatballs",
           "food_id": 123,
           "average_rank": null
         },
         {
           "id": 2,
-          "name": "Spaghetti",
+          "food_name": "Spaghetti",
           "food_id": 456,
           "average_rank": null
         }
