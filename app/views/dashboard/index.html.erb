@@ -2,24 +2,22 @@
 
 <div id="todays-meals">
   <h3>Today's Meals - <%= @today.strftime('%B %d, %Y') %></h3>
-  <!-- Remove this if block when the get meals endpoing is live -->
-  <% if false %>
-              <% if @meals.empty? %>
-                <p>You haven't logged any meals yet today</p>
-              <% else %>
-                <% @meals.each do |meal| %>
-                  <div id="meal-<%= meal.id %>">
-                    <h4><%= meal.name %>
-                      <% if meal.rank >= 0 %>
-                          - <%= meal.rank %>/10
-                      <% end %>
-                    </h4>
-                    <p><%= meal.meal_time.to_datetime.strftime('%l:%M %P') %></p>
-                    Foods:
-                    <%= meal.food_names.join(', ') %>
-                  </div>
-                <% end %>
-              <% end %>
+
+  <% if @meals.nil? %>
+    <p>You haven't logged any meals yet today</p>
+  <% else %>
+    <% @meals.each do |meal| %>
+      <div id="meal-<%= meal.id %>">
+        <h4><%= meal.name %>
+          <% if meal.rank >= 0 %>
+              - <%= meal.rank %>/10
+          <% end %>
+        </h4>
+        <p><%= meal.meal_time.to_datetime.strftime('%l:%M %P') %></p>
+        Foods:
+        <%= meal.food_names.join(', ') %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
