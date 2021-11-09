@@ -11,7 +11,10 @@ class BackendService
   end
 
   def self.update_meal(user_id, meal_hash)
-    response = conn.patch("api/v1/users/#{user_id}/meals", meal_hash)
+    response = conn.patch do |req|
+      req.url "api/v1/users/#{user_id}/meals"
+      req.params = meal_hash
+    end
     parse_json(response)
   end
 
@@ -29,6 +32,10 @@ class BackendService
     response = conn.get("api/v1/users", {email: email, name: name, access_token: token})
     parse_json(response)
   end
+
+  # def self.update_meal_ranking(user_id, meal_id, rank)
+  #   response = conn.patch("api/v1/users/#{user_id}/meals?rank=#{rank}&meal_id=#{meal_id}")
+  # end
 
   def self.conn
     Faraday.new(url: 'https://snackr-backend.herokuapp.com/') do |faraday|

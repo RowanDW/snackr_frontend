@@ -2,7 +2,7 @@
 <%= form_with url: meal_rating_path, method: :patch, local: true do |f| %>
   <% @meals.each do |meal| %>
     <div id="meal-<%= meal.id %>">
-      <p><%= check_box_tag 'meal[]', meal.name %> <%= meal.name %></p>
+      <p><%= check_box_tag 'meal[]', meal.id %> <%= meal.name %></p>
     </div>
   <% end %>
   <%= f.label :rating %>

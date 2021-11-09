@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://snackr-backend.herokuapp.com/api/v1/users/1/meals?meal_id=1&rank=8
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.4
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 09 Nov 2021 18:13:12 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"763089533e5875895fe451e88818e7fe"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 33076776-c374-4360-8307-d1f0a49f96b4
+      X-Runtime:
+      - '0.010090'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":1,"type":"meal","attributes":{"name":"First meal","rank":8,"meal_time":"2021-11-06T08:30:00.000Z"}}}'
+  recorded_at: Tue, 09 Nov 2021 18:13:12 GMT
+- request:
+    method: patch
+    uri: https://snackr-backend.herokuapp.com/api/v1/users/1/meals?meal_id=2&rank=8
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.4
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 09 Nov 2021 18:13:12 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"d792077264c43593286da8992fa59528"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1c3aa135-8efe-45b2-9622-f0196cf6461f
+      X-Runtime:
+      - '0.013830'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":2,"type":"meal","attributes":{"name":"Second meal","rank":8,"meal_time":"2021-11-06T01:30:00.000Z"}}}'
+  recorded_at: Tue, 09 Nov 2021 18:13:13 GMT
+recorded_with: VCR 6.0.0

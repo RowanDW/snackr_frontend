@@ -3,7 +3,7 @@
 <div id="todays-meals">
   <h3>Today's Meals - <%= @today.strftime('%B %d, %Y') %></h3>
   <!-- Remove this if block when the get meals endpoing is live -->
-  <% if false %>
+<%= require 'pry'; binding.pry %>
               <% if @meals.empty? %>
                 <p>You haven't logged any meals yet today</p>
               <% else %>
@@ -20,7 +20,7 @@
                   </div>
                 <% end %>
               <% end %>
-  <% end %>
+
 </div>
 
 <%= button_to 'Add a meal', meal_builder_path, method: :get %>
