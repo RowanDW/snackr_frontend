@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BackendService do
-  xit "can get meals for a user with a given date" do
-    #Does this need a meal_time attribute?
+  it "can get meals for a user with a given date", :vcr do
     # {
     #   "data": [
     #     {
@@ -34,10 +33,7 @@ RSpec.describe BackendService do
     #     }
     #   ]
     # }
-
-
-
-    response = BackendService.get_meals
+    response = BackendService.get_meals(6, "2021-11-06 08:30:00")
 
     expect(response).to be_a Hash
 
@@ -47,7 +43,7 @@ RSpec.describe BackendService do
     first_meal = response[:data].first
 
     expect(first_meal).to have_key :id
-    expect(first_meal[:id]).to be_a String
+    expect(first_meal[:id]).to be_a Integer
 
     expect(first_meal).to have_key :type
     expect(first_meal[:type]).to eq('meal')
@@ -71,30 +67,30 @@ RSpec.describe BackendService do
     expect(first_meal[:relationships][:food_entries]).to be_a Hash
 
     expect(first_meal[:relationships][:food_entries]).to have_key :data
-    expect(first_meal[:relationships][:food_entries][:data]).to be_a Hash
+    expect(first_meal[:relationships][:food_entries][:data]).to be_a Array
 
     first_relationship = first_meal[:relationships][:food_entries][:data].first
 
     expect(first_relationship).to have_key :id
-    expect(first_relationship[:id]).to be_a String
+    expect(first_relationship[:id]).to be_a Integer
 
-    expect(first_relationship).to have_key :name
-    expect(first_relationship[:name]).to be_a String
+    expect(first_relationship).to have_key :food_name
+    expect(first_relationship[:food_name]).to be_a String
 
     expect(first_relationship).to have_key :meal_id
-    expect(first_relationship[:meal_id]).to be_a String
+    expect(first_relationship[:meal_id]).to be_a Integer
 
     expect(first_relationship).to have_key :food_id
     expect(first_relationship[:food_id]).to be_a String
   end
 
-  xit "can create a new meal" do
+  xit "can create a new meal", :vcr do
     meal_hash = {
       "name": "Spaghetti",
-      "user_id": 18,
+      "user_id": 6,
       "meal_time": "2012-03-05, 00:00:00"
     }
-    response = BackendService.new_meal(meal_hash)
+    response = BackendService.new_meal(6, meal_hash)
 
     # {
     #   "data": {
@@ -130,15 +126,15 @@ RSpec.describe BackendService do
     expect(meal[:attributes][:rank]).to be_a Float
 
     expect(meal[:attributes]).to have_key :meal_time
-    expect(meal[:attributes][:meal_time]).to be_a DateTime ## Or maybe String?
+    expect(meal[:attributes][:meal_time]).to be_a DateTime
   end
 
-  xit "can update a meal" do
+  it "can update a meal", :vcr do
     meal_hash = {
-      "rank": 7,
-      "meal_id": 18,
+      "rank": 1,
+      "meal_id": 1
     }
-    response = BackendService.update_meal(meal_hash)
+    response = BackendService.update_meal(6, meal_hash)
     #
     # {
     #   "data": {
@@ -159,7 +155,7 @@ RSpec.describe BackendService do
     meal = response[:data]
 
     expect(meal).to have_key :id
-    expect(meal[:id]).to be_a String
+    expect(meal[:id]).to be_a Integer
 
     expect(meal).to have_key :type
     expect(meal[:type]).to eq('meal')
@@ -174,11 +170,11 @@ RSpec.describe BackendService do
     expect(meal[:attributes][:rank]).to be_a Integer
 
     expect(meal[:attributes]).to have_key :meal_time
-    expect(meal[:attributes][:meal_time]).to be_a DateTime ## Or maybe String?
+    expect(meal[:attributes][:meal_time]).to be_a String ## Or maybe String?
   end
 
-  xit "can get a list of a users ranked foods" do
-    response = BackendService.get_foods
+  it "can get a list of a users ranked foods", :vcr do
+    response = BackendService.get_foods(6)
     # {
     #   "data": [
     #     {
@@ -207,9 +203,6 @@ RSpec.describe BackendService do
 
     first_food = response[:data].first
 
-    expect(first_food).to have_key :id
-    expect(first_food[:id]).to be_a String
-
     expect(first_food).to have_key :type
     expect(first_food[:type]).to eq('food_entry')
 
@@ -220,10 +213,10 @@ RSpec.describe BackendService do
     expect(first_food[:attributes][:name]).to be_a String
 
     expect(first_food[:attributes]).to have_key :average_rank
-    expect(first_food[:attributes][:average_rank]).to be_a Float
+    expect(first_food[:attributes][:average_rank].to_f).to be_a Float
   end
 
-  xit "can search for foods" do
+  it "can search for foods", :vcr do
     response = BackendService.food_search('hamburger+helper')
     # {
     #   "data": [
