@@ -17,7 +17,11 @@ class BackendService
   end
 
   def self.update_meal(user_id, meal_hash)
-    response = conn.patch("api/v1/users/#{user_id}/meals", meal_hash)
+    response = conn.patch do |req|
+      req.url "api/v1/users/#{user_id}/meals"
+      req.params = meal_hash
+    end
+
     parse_json(response)
   end
 
