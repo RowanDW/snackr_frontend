@@ -21,6 +21,4 @@ class FoodsController < ApplicationController
     reset_meal(meal)
     redirect_to(meal_builder_path)
   end
-
-  
 end
