@@ -37,3 +37,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+
+/spec/fixtures/vcr_cassettes/*
+/spec/fixtures/vcr_cassettes/
