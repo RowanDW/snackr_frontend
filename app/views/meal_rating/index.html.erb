@@ -1,0 +1,11 @@
+<h3>Choose meals to rate</h3>
+<%= form_with url: meal_rating_path, method: :patch, local: true do |f| %>
+  <% @meals.each do |meal| %>
+    <div id="meal-<%= meal.id %>">
+      <p><%= check_box_tag 'meal[]', meal.name %> <%= meal.name %></p>
+    </div>
+  <% end %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating, in: 1..10, step: 1.0 %>
+  <%= f.submit "Submit Ratings" %>
+<% end %>

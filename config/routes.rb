@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/food_search', to: 'food_search#index'
 
   get '/meal_rating',  to: 'meal_rating#index'
+  patch '/meal_rating', to: 'meal_rating#update'
 
   resources :foods, only: [:destroy, :create]
 end
