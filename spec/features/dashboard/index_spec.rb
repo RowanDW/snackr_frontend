@@ -7,7 +7,7 @@ RSpec.describe 'The dashboard' do
     allow(DateTime).to receive(:current).and_return('2021-11-06T00:14:46+00:00'.to_date)
   end
 
-  it "shows a list of todays meals" do
+  it "shows a list of todays meals", :vcr do
     mock_response = File.read('spec/fixtures/responses/meals.json')
     allow(BackendService).to receive(:get_meals).and_return(JSON.parse(mock_response, symbolize_names: true))
 
@@ -35,7 +35,7 @@ RSpec.describe 'The dashboard' do
     end
   end
 
-  it "shows meal rating if present" do
+  it "shows meal rating if present", :vcr do
     mock_response = File.read('spec/fixtures/responses/meals.json')
     allow(BackendService).to receive(:get_meals).and_return(JSON.parse(mock_response, symbolize_names: true))
 
@@ -51,7 +51,7 @@ RSpec.describe 'The dashboard' do
     end
   end
 
-  it "shows a message if no meals have been logged" do
+  it "shows a message if no meals have been logged", :vcr do
     allow(BackendService).to receive(:get_meals).and_return({"data": []})
 
     visit dashboard_path
@@ -72,7 +72,7 @@ RSpec.describe 'The dashboard' do
 
   it 'has a button that takes user to the meal rating page', :vcr do
     visit dashboard_path
-
+    save_and_open_page
     click_button('Rate meals')
     expect(current_path).to eq(meal_rating_path)
   end

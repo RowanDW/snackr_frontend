@@ -84,13 +84,9 @@ RSpec.describe BackendService do
     expect(first_relationship[:food_id]).to be_a String
   end
 
-  xit "can create a new meal", :vcr do
-    meal_hash = {
-      "name": "Spaghetti",
-      "user_id": 6,
-      "meal_time": "2012-03-05, 00:00:00"
-    }
-    response = BackendService.new_meal(6, meal_hash)
+  it "can create a new meal", :vcr do
+    lasagna = File.read('spec/fixtures/responses/lasagna.json')
+    response = BackendService.new_meal(6, lasagna)
 
     # {
     #   "data": {
@@ -111,7 +107,7 @@ RSpec.describe BackendService do
     meal = response[:data]
 
     expect(meal).to have_key :id
-    expect(meal[:id]).to be_a String
+    expect(meal[:id]).to be_a Integer
 
     expect(meal).to have_key :type
     expect(meal[:type]).to eq('meal')
@@ -123,10 +119,11 @@ RSpec.describe BackendService do
     expect(meal[:attributes][:name]).to be_a String
 
     expect(meal[:attributes]).to have_key :rank
-    expect(meal[:attributes][:rank]).to be_a Float
+    expect(meal[:attributes][:rank]).to eq(-1)
 
     expect(meal[:attributes]).to have_key :meal_time
-    expect(meal[:attributes][:meal_time]).to be_a DateTime
+    expect(meal[:attributes][:meal_time].to_datetime).to be_a DateTime
+    expect(meal[:attributes][:meal_time].to_datetime).to be_a DateTime
   end
 
   it "can update a meal", :vcr do
@@ -287,5 +284,44 @@ RSpec.describe BackendService do
 
     expect(response[:data][:attributes]).to have_key :name
     expect(response[:data][:attributes][:name]).to be_a String
+  end
+
+  it 'can get graphs for a user', :vcr do
+    response = BackendService.get_graphs(6)
+    # {
+    #    "data": [
+        #     {
+        #       "type": "graph",
+        #       "attributes": {
+        #         "name": "top_10",
+        #         "uri": "/chart?blahblahblah"
+        #       }
+        #     },
+        #     {
+        #       "type": "graph",
+        #       "attributes": {
+        #         "name": "bottom_10",
+        #         "uri": "/chart?blahblahblah"
+        #       }
+        #     }
+        #   ]
+        # }
+    expect(response).to be_a Hash
+
+    expect(response).to have_key :data
+    expect(response[:data]).to be_an Array
+
+    expect(response[:data].first).to have_key :type
+    expect(response[:data].first[:type]).to eq('graph')
+
+    expect(response[:data].first).to have_key :attributes
+    expect(response[:data].first[:attributes]).to be_a Hash
+
+    expect(response[:data].first[:attributes]).to have_key :name
+    expect(response[:data].first[:attributes][:name]).to be_a String
+
+    expect(response[:data].first[:attributes]).to have_key :uri
+    expect(response[:data].first[:attributes][:uri]).to be_a String
+
   end
 end

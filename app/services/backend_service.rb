@@ -39,6 +39,11 @@ class BackendService
     parse_json(response)
   end
 
+  def self.get_graphs(user_id)
+    response = conn.get("api/v1/users/#{user_id}/graphs")
+    parse_json(response)
+  end
+
   def self.conn
     Faraday.new(url: 'https://snackr-backend.herokuapp.com/') do |faraday|
       faraday.adapter Faraday.default_adapter
