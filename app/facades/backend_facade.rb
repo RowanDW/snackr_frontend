@@ -2,12 +2,10 @@ class BackendFacade
   def self.get_meals(user_id, date = DateTime.current.beginning_of_day)
     meals = BackendService.get_meals(user_id, date)
     meals[:data].map do |meal|
-      meal_hash = {
-        id: meal[:id],
-        name: meal[:attributes][:name],
-        rank: meal[:attributes][:rank],
-        meal_time: meal[:attributes][:meal_time]
-      }
+      meal_hash = { id: meal[:id],
+                    name: meal[:attributes][:name],
+                    rank: meal[:attributes][:rank],
+                    meal_time: meal[:attributes][:meal_time] }
       food_entries = meal[:relationships][:food_entries][:data]
       Meal.new(meal_hash, food_entries)
     end

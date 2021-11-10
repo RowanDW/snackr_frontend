@@ -17,9 +17,7 @@ class Meal
   end
 
   def food_names
-    @foods.map do |food|
-      food.food_name
-    end
+    @foods.map(&:food_name)
   end
 
   def food_entry_by_food_id(food_id)

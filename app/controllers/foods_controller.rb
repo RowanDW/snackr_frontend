@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   def create
     food_params = { food_id: params[:food_id], food_name: params[:food_name] }
-    if cookies[:meal].nil? || cookies[:meal].empty?
+    if cookies[:meal].blank?
       meal = Meal.new({})
     else
       meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]

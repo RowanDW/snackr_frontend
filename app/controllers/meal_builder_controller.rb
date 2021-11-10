@@ -1,6 +1,6 @@
 class MealBuilderController < ApplicationController
   def index
-    return if cookies[:meal].nil? || cookies[:meal].empty?
+    return if cookies[:meal].blank?
 
     meal   = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
     @foods = meal[:attributes][:foods]
@@ -9,8 +9,7 @@ class MealBuilderController < ApplicationController
   def create
     if cookies[:meal].present?
       meal_data = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
-      meal_hash = construct_meal_data(meal_data)
-      meal = Meal.new(meal_hash, meal_data[:attributes][:foods])
+      meal = Meal.new(construct_meal_data(meal_data), meal_data[:attributes][:foods])
       reset_meal(meal)
       BackendService.new_meal(current_user_id, cookies[:meal])
       cookies[:meal].clear
@@ -26,7 +25,7 @@ class MealBuilderController < ApplicationController
   def construct_meal_data(meal_data)
     meal_data[:attributes][:name]      = params[:meal_name]
     meal_data[:attributes][:meal_time] = params[:meal_time]
-    meal_hash = {
+    {
       id: meal_data[:id],
       name: meal_data[:attributes][:name],
       meal_time: meal_data[:attributes][:meal_time]
