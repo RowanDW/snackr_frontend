@@ -16,7 +16,7 @@ class FoodsController < ApplicationController
     meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
     meal       = Meal.new(meal_data, meal_data[:attributes][:foods])
 
-    meal.remove_food_by_food_id(params[:id].to_i)
+    meal.remove_food_by_food_id(params[:id])
     reset_meal(meal)
     redirect_to(meal_builder_path)
   end
