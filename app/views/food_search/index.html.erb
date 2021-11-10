@@ -1,6 +1,6 @@
 <h1>Food Search</h1>
 <%= form_with url: food_search_path, method: :get, local: true do |f| %>
-  <%= f.text_field :search %>
+  <%= f.text_field :search, required: true %>
   <%= f.submit 'Search' %>
 <% end %>
 <% @foods&.each do |food| %>
