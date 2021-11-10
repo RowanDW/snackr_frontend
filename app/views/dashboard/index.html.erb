@@ -1,25 +1,40 @@
-<h1><%= current_user_name %>'s Dashboard</h1>
+<div class="container mt-5">
+  <h1 class="text-center"><%= current_user_name %>'s Dashboard</h1>
+<br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div id="todays-meals">
+          <h3>Today's Meals - <%= @today.strftime('%B %d, %Y') %></h3>
+          <% if @meals.nil? || @meals.empty?%>
+            <p>You haven't logged any meals yet today</p>
+          <% else %>
+            <% @meals.each do |meal| %>
 
-<div id="todays-meals">
-  <h3>Today's Meals - <%= @today.strftime('%B %d, %Y') %></h3>
-
-  <% if @meals.nil? || @meals.empty?%>
-    <p>You haven't logged any meals yet today</p>
-  <% else %>
-    <% @meals.each do |meal| %>
-      <div id="meal-<%= meal.id %>">
-        <h4><%= meal.name %>
-          <% if meal.rank >= 0 %>
-              - <%= meal.rank %>/10
+            <div id="meal-<%= meal.id %>" class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h4><%= meal.name %>
+                  <% if meal.rank >= 0 %>
+                      - <%= meal.rank %>/10
+                  <% end %>
+                </h4>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= meal.meal_time.to_datetime.strftime('%l:%M %P') %></li>
+                <li class="list-group-item">Foods:
+                <%= meal.food_names.join(', ') %></li>
+              </ul>
+            </div>
+            <br>
+            <% end %>
           <% end %>
-        </h4>
-        <p><%= meal.meal_time.to_datetime.strftime('%l:%M %P') %></p>
-        Foods:
-        <%= meal.food_names.join(', ') %>
+        </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
+      <div class="col-sm">
+        <%= button_to 'Add a meal', meal_builder_path, method: :get %>
+        <%= button_to 'Rate meals', meal_rating_path,  method: :get %>
+      </div>
+    </div>
+  </div>
 
-<%= button_to 'Add a meal', meal_builder_path, method: :get %>
-<%= button_to 'Rate meals', meal_rating_path,  method: :get %>
+</div>
