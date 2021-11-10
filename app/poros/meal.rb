@@ -11,7 +11,7 @@ class Meal
 
   def create_food_entries(foods_array)
     foods_array.map do |food|
-      food_attrs = {id: food[:id], food_name: food[:food_name], food_id: food[:food_id]}
+      food_attrs = { id: food[:id], food_name: food[:food_name], food_id: food[:food_id] }
       FoodEntry.new(food_attrs)
     end
   end

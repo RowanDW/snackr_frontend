@@ -7,8 +7,8 @@ class MealBuilderController < ApplicationController
   end
 
   def create
-    if !cookies[:meal].nil? && !cookies[:meal].empty?
-      meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
+    if cookies[:meal].present?
+      meal_data = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
       meal_hash = construct_meal_data(meal_data)
       meal = Meal.new(meal_hash, meal_data[:attributes][:foods])
       reset_meal(meal)
@@ -27,8 +27,8 @@ class MealBuilderController < ApplicationController
     meal_data[:attributes][:name]      = params[:meal_name]
     meal_data[:attributes][:meal_time] = params[:meal_time]
     meal_hash = {
-      id:        meal_data[:id],
-      name:      meal_data[:attributes][:name],
+      id: meal_data[:id],
+      name: meal_data[:attributes][:name],
       meal_time: meal_data[:attributes][:meal_time]
     }
   end

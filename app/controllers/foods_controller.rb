@@ -1,7 +1,6 @@
 class FoodsController < ApplicationController
-
   def create
-    food_params = {food_id: params[:food_id], food_name: params[:food_name]}
+    food_params = { food_id: params[:food_id], food_name: params[:food_name] }
     if cookies[:meal].nil? || cookies[:meal].empty?
       meal = Meal.new({})
     else
