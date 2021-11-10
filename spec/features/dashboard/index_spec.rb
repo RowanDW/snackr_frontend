@@ -83,7 +83,7 @@ RSpec.describe 'The dashboard' do
     allow(BackendFacade).to receive(:get_graphs).and_return(hash)
 
     visit dashboard_path
-    save_and_open_page
+
     expect(page.find('#top_10')['src']).to have_content hash["10_Highest"]
     expect(page.find('#bottom_10')['src']).to have_content hash["10_Lowest"]
   end
