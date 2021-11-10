@@ -125,16 +125,14 @@ RSpec.describe 'BackendFacade' do
     mock_response = {
       "data": [
           {
-            "id": "1",
-            "type": "graph_uri",
+            "type": "graph",
             "attributes": {
               "name": "top_10",
               "uri": "/chart?blahblahblah"
             }
           },
           {
-            "id": "2",
-            "type": "graph_uri",
+            "type": "graph",
             "attributes": {
               "name": "bottom_10",
               "uri": "/chart?blahblahblah"

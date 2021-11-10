@@ -1,0 +1,25 @@
+{
+  "data":{
+    "id": null,
+    "type": "meal",
+    "attributes": {
+      "name": "Lasagna Dinner",
+      "rank": null,
+      "foods": [
+        {
+          "id": 1,
+          "food_name": "Lasagna Noodles",
+          "food_id": 321,
+          "average_rank": null
+        },
+        {
+          "id": 2,
+          "food_name": "Lasagna Sauce",
+          "food_id": 654,
+          "average_rank": null
+        }
+      ],
+      "meal_time": "2021-11-08T10:44:00"
+    }
+  }
+}
