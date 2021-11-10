@@ -1,10 +1,24 @@
-<h1>Food Search</h1>
-<%= form_with url: food_search_path, method: :get, local: true do |f| %>
-  <%= f.text_field :search, required: true %>
-  <%= f.submit 'Search' %>
-<% end %>
-<% @foods&.each do |food| %>
-<div id="food-<%= food.id %>">
-  <%= food.name %> <%= button_to "Add to Meal", foods_path, params: {food_id: food.id, food_name: food.name} %><br>
+<div class="container mt-5">
+  <h1 class="text-center">Food Search</h1>
+  <div class="d-flex justify-content-center">
+    <%= form_with url: food_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :search, required: true %>
+      <%= f.submit 'Search' %>
+    <% end %>
+  </div>
+
+  <table class="table table-hover">
+  <tbody>
+    <% @foods&.each do |food| %>
+    <tr id="food-<%= food.id %>">
+      <td ><%= food.name %></td>
+      <td ><%= button_to "Add to Meal", foods_path, params: {food_id: food.id, food_name: food.name} %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+
+
 </div>
-<% end %>
