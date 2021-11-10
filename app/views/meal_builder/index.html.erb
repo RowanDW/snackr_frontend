@@ -6,8 +6,8 @@
 <% end %>
 
 <%= form_with url: meal_builder_path, method: :post do |f| %>
-  <%= f.text_field     :meal_name %>
-  <%= f.datetime_field :meal_time %><br>
+  <%= f.text_field     :meal_name, required: true %>
+  <%= f.datetime_field :meal_time, required: true %><br>
   <%= f.submit         'Save meal' %>
 <% end %>
 
