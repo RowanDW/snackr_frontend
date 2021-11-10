@@ -23,3 +23,10 @@
 
 <%= button_to 'Add a meal', meal_builder_path, method: :get %>
 <%= button_to 'Rate meals', meal_rating_path,  method: :get %>
+<div >
+  <%= image_tag(@graphs["10_Highest"], :id => "top_10", :alt => "Graph displaying user's top 10 foods") %>
+</div>
+
+<div >
+  <%= image_tag(@graphs["10_Lowest"], :id => "bottom_10", :alt => "Graph displaying user's bottom 10 foods") %>
+</div>

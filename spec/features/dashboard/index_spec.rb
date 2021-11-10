@@ -72,8 +72,19 @@ RSpec.describe 'The dashboard' do
 
   it 'has a button that takes user to the meal rating page', :vcr do
     visit dashboard_path
-    save_and_open_page
+
     click_button('Rate meals')
     expect(current_path).to eq(meal_rating_path)
+  end
+
+  it 'has graphs of top foods and bottom foods', :vcr do
+    hash = {"10_Highest" => "https://image-charts.com/chart?chbh=a&chs=700x150&cht=bhg&chxt=y&chds=0,120&chco=fdb45c,27c9c2,1869b7&chbr=5&chxs=0,000000,0,0,_&chm=N,000000,0,,10|N,000000,1,,10|N,000000,2,,10&chma=0,0,10,10&chd=t:9.0|9.0|9.0|9.0|8.0|8.0|8.0|6.5|5.0|5.0&chdl=zucchini|lentils|chickpeas|hummus|mango|apricot|macaroni|rice|pizza|apple",
+            "10_Lowest" => "https://image-charts.com/chart?chbh=a&chs=700x150&cht=bhg&chxt=y&chds=0,120&chco=fdb45c,27c9c2,1869b7&chbr=5&chxs=0,000000,0,0,_&chm=N,000000,0,,10|N,000000,1,,10|N,000000,2,,10&chma=0,0,10,10&chd=t:2.0|2.0|2.0|3.0|3.0|3.0|3.0|3.5|5.0|5.0&chdl=blueberry|couscous|pop tart|broccoli|banana peppers|naan bread|spaghetti|bagel|pizza|apple"}
+    allow(BackendFacade).to receive(:get_graphs).and_return(hash)
+
+    visit dashboard_path
+    save_and_open_page
+    expect(page.find('#top_10')['src']).to have_content hash["10_Highest"]
+    expect(page.find('#bottom_10')['src']).to have_content hash["10_Lowest"]
   end
 end
