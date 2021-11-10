@@ -6,21 +6,22 @@
       <div class="col-sm">
         <div id="todays-meals">
           <h3>Today's Meals - <%= @today.strftime('%B %d, %Y') %></h3>
+          <br>
           <% if @meals.nil? || @meals.empty?%>
             <p>You haven't logged any meals yet today</p>
           <% else %>
             <% @meals.each do |meal| %>
 
-            <div id="meal-<%= meal.id %>" class="card" style="width: 18rem;">
+            <div id="meal-<%= meal.id %>" class="card mr-4" style="">
               <div class="card-header">
-                <h4><%= meal.name %>
-                  <% if meal.rank >= 0 %>
-                      - <%= meal.rank %>/10
-                  <% end %>
-                </h4>
+                <h4><%= meal.name %> - <%= meal.meal_time.to_datetime.strftime('%l:%M %P') %></h4>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= meal.meal_time.to_datetime.strftime('%l:%M %P') %></li>
+                <li class="list-group-item">Rating: <% if meal.rank >= 0 %>
+                  <%= meal.rank %>/10
+                  <% else %>
+                  No rating yet
+                <% end %></li>
                 <li class="list-group-item">Foods:
                 <%= meal.food_names.join(', ') %></li>
               </ul>
@@ -31,10 +32,30 @@
         </div>
       </div>
       <div class="col-sm">
-        <%= button_to 'Add a meal', meal_builder_path, method: :get %>
-        <%= button_to 'Rate meals', meal_rating_path,  method: :get %>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+                <div class="text-center mx-4" >
+              <%= button_to 'Add a meal', meal_builder_path, method: :get, class: "btn btn-secondary form-control mx-2"%>
+              </div>
+            </div>
+            <div class="col">
+                <div class="text-center mx-4" >
+              <%= button_to 'Rate meals', meal_rating_path,  method: :get, class:"btn btn-secondary form-control mx-2" %>
+            </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p>Your Highest Rated Foods</p>
+        <div >
+          <%= image_tag(@graphs["10_Highest"], :id => "top_10", :alt => "Graph displaying user's top 10 foods") %>
+        </div>
+        <br>
+        <p>Your Lowest Rated Foods</p>
+        <div >
+          <%= image_tag(@graphs["10_Lowest"], :id => "bottom_10", :alt => "Graph displaying user's bottom 10 foods") %>
+        </div>
       </div>
     </div>
   </div>
-
-</div>

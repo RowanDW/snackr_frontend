@@ -7,7 +7,7 @@ RSpec.describe 'The dashboard' do
     allow(DateTime).to receive(:current).and_return('2021-11-06T00:14:46+00:00'.to_date)
   end
 
-  it "shows a list of todays meals" do
+  it "shows a list of todays meals", :vcr do
     mock_response = File.read('spec/fixtures/responses/meals.json')
     allow(BackendService).to receive(:get_meals).and_return(JSON.parse(mock_response, symbolize_names: true))
 
@@ -35,7 +35,7 @@ RSpec.describe 'The dashboard' do
     end
   end
 
-  it "shows meal rating if present" do
+  it "shows meal rating if present", :vcr do
     mock_response = File.read('spec/fixtures/responses/meals.json')
     allow(BackendService).to receive(:get_meals).and_return(JSON.parse(mock_response, symbolize_names: true))
 
@@ -51,7 +51,7 @@ RSpec.describe 'The dashboard' do
     end
   end
 
-  it "shows a message if no meals have been logged" do
+  it "shows a message if no meals have been logged", :vcr do
     allow(BackendService).to receive(:get_meals).and_return({"data": []})
 
     visit dashboard_path
@@ -75,5 +75,16 @@ RSpec.describe 'The dashboard' do
 
     click_button('Rate meals')
     expect(current_path).to eq(meal_rating_path)
+  end
+
+  it 'has graphs of top foods and bottom foods', :vcr do
+    hash = {"10_Highest" => "https://image-charts.com/chart?chbh=a&chs=700x150&cht=bhg&chxt=y&chds=0,120&chco=fdb45c,27c9c2,1869b7&chbr=5&chxs=0,000000,0,0,_&chm=N,000000,0,,10|N,000000,1,,10|N,000000,2,,10&chma=0,0,10,10&chd=t:9.0|9.0|9.0|9.0|8.0|8.0|8.0|6.5|5.0|5.0&chdl=zucchini|lentils|chickpeas|hummus|mango|apricot|macaroni|rice|pizza|apple",
+            "10_Lowest" => "https://image-charts.com/chart?chbh=a&chs=700x150&cht=bhg&chxt=y&chds=0,120&chco=fdb45c,27c9c2,1869b7&chbr=5&chxs=0,000000,0,0,_&chm=N,000000,0,,10|N,000000,1,,10|N,000000,2,,10&chma=0,0,10,10&chd=t:2.0|2.0|2.0|3.0|3.0|3.0|3.0|3.5|5.0|5.0&chdl=blueberry|couscous|pop tart|broccoli|banana peppers|naan bread|spaghetti|bagel|pizza|apple"}
+    allow(BackendFacade).to receive(:get_graphs).and_return(hash)
+
+    visit dashboard_path
+
+    expect(page.find('#top_10')['src']).to have_content hash["10_Highest"]
+    expect(page.find('#bottom_10')['src']).to have_content hash["10_Lowest"]
   end
 end
