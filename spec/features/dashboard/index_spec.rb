@@ -42,7 +42,7 @@ RSpec.describe 'The dashboard' do
     visit dashboard_path
 
     within('#meal-1') do
-      expect(page).to have_content("Breakfast - 8/10")
+      expect(page).to have_content("8/10")
     end
 
     within('#meal-2') do

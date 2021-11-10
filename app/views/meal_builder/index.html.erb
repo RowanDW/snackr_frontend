@@ -1,14 +1,35 @@
-<% @foods&.each do |food| %>
-  <div id="food-<%= food[:food_id] %>">
-    <%= food[:food_name] %>
-    <%= button_to 'Delete', food_path(food[:food_id]), method: :delete %>
+<div class="container mt-5">
+  <h2>Meal Builder</h2>
+
+  <div class="card" style="width: 60rem; text-center">
+    <div class="card-body">
+      <h5 class="card-title">Your Meal</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= button_to 'Add food', food_search_path, method: :get %></h6>
+      <br>
+      <div class="card-text">
+        <table class="table table-hover">
+          <tbody>
+            <% @foods&.each do |food| %>
+                <tr id="food-<%= food[:food_id] %>">
+                  <td>  <%= food[:food_name] %></td>
+                  <td><%= button_to 'Delete', food_path(food[:food_id]), method: :delete %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <%= form_with url: meal_builder_path, method: :post do |f| %>
+        <div class="form-inline">
+          <%= f.label     :meal_name, required: true%>
+          <%= f.text_field     :meal_name, required: true, class: "" %>  &nbsp
+
+          <%= f.label :meal_time, required: true, class: ""%>
+          <%= f.datetime_field :meal_time, required: true, class: ""%>
+          <%= f.submit         'Save meal' %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-<% end %>
-
-<%= form_with url: meal_builder_path, method: :post do |f| %>
-  <%= f.text_field     :meal_name, required: true %>
-  <%= f.datetime_field :meal_time, required: true %><br>
-  <%= f.submit         'Save meal' %>
-<% end %>
-
-<%= button_to 'Add food', food_search_path, method: :get %>
+</div>
