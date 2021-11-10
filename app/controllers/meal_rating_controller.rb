@@ -8,7 +8,7 @@ class MealRatingController < ApplicationController
     rank = params[:rating].to_i
     if meals
       meals.each do |meal|
-        meals_hash = {"rank": rank, "meal_id": meal.to_i}
+        meals_hash = { "rank": rank, "meal_id": meal.to_i }
         BackendService.update_meal(current_user_id, meals_hash)
       end
       redirect_to dashboard_path

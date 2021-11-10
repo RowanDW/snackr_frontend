@@ -1,8 +1,5 @@
 class FoodSearchController < ApplicationController
-
   def index
-    if params[:search]
-      @foods = BackendFacade.food_search(params[:search])
-    end
+    @foods = BackendFacade.food_search(params[:search]) if params[:search]
   end
 end

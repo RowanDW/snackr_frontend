@@ -167,7 +167,7 @@ RSpec.describe BackendService do
     expect(meal[:attributes][:rank]).to be_a Integer
 
     expect(meal[:attributes]).to have_key :meal_time
-    expect(meal[:attributes][:meal_time]).to be_a String ## Or maybe String?
+    expect(meal[:attributes][:meal_time]).to be_a String
   end
 
   it "can get a list of a users ranked foods", :vcr do

@@ -1,5 +1,4 @@
 class BackendService
-
   def self.get_meals(user_id, date = DateTime.current.in_time_zone)
     response = conn.get("api/v1/users/#{user_id}/meals?date=#{date}")
     parse_json(response)
@@ -24,7 +23,7 @@ class BackendService
     parse_json(response)
   end
 
-  def self.get_foods(user_id)# PARAMS NEED TO BE FIGURED OUT
+  def self.get_foods(user_id)
     response = conn.get("api/v1/users/#{user_id}/foods")
     parse_json(response)
   end
@@ -35,7 +34,7 @@ class BackendService
   end
 
   def self.login_user(email, name, token)
-    response = conn.get("api/v1/users", {email: email, name: name, access_token: token})
+    response = conn.get('api/v1/users', { email: email, name: name, access_token: token })
     parse_json(response)
   end
 
