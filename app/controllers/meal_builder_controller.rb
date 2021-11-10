@@ -7,7 +7,23 @@ class MealBuilderController < ApplicationController
   end
 
   def create
-    meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
+    if !cookies[:meal].nil? && !cookies[:meal].empty?
+      meal_data  = JSON.parse(cookies[:meal], symbolize_names: true)[:data]
+      meal_hash = construct_meal_data(meal_data)
+      meal = Meal.new(meal_hash, meal_data[:attributes][:foods])
+      reset_meal(meal)
+      BackendService.new_meal(current_user_id, cookies[:meal])
+      cookies[:meal].clear
+      redirect_to dashboard_path
+    else
+      flash[:error] = 'Unable to create meal. Please add a food!'
+      redirect_to meal_builder_path
+    end
+  end
+
+  private
+
+  def construct_meal_data(meal_data)
     meal_data[:attributes][:name]      = params[:meal_name]
     meal_data[:attributes][:meal_time] = params[:meal_time]
     meal_hash = {
@@ -15,14 +31,5 @@ class MealBuilderController < ApplicationController
       name:      meal_data[:attributes][:name],
       meal_time: meal_data[:attributes][:meal_time]
     }
-    meal       = Meal.new(meal_hash, meal_data[:attributes][:foods])
-
-    reset_meal(meal)
-
-    # this response may not be necessary unless we want to use error message
-    response = BackendService.new_meal(current_user_id, cookies[:meal])
-
-    cookies[:meal].clear
-    redirect_to dashboard_path
   end
 end
