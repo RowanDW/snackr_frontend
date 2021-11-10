@@ -54,13 +54,4 @@ RSpec.describe 'Food Search Page' do
     expect(current_path).to eq(meal_builder_path)
     expect(page).to have_content("Wild Blueberries")
   end
-
-  xit 'will return an error message if search params are empty' do
-    visit food_search_path
-
-    click_on "Search"
-
-    expect(current_path).to eq(food_search_path)
-    expect(page).to have_content("Invalid search. Please try again.")
-  end
 end
