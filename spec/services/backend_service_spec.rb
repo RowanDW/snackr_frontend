@@ -123,6 +123,7 @@ RSpec.describe BackendService do
 
     expect(meal[:attributes]).to have_key :meal_time
     expect(meal[:attributes][:meal_time].to_datetime).to be_a DateTime
+    expect(meal[:attributes][:meal_time].to_datetime).to be_a DateTime
   end
 
   it "can update a meal", :vcr do
