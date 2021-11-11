@@ -1,4 +1,4 @@
-# Snackr
+# Snackr Trackr
 [![Build Status][travis-image]][travis-url]
 
 ## Table of contents
@@ -9,7 +9,7 @@
 
 ### Overview
 
-[Snackr](https://snackr-trackr.herokuapp.com) Snackr Trackr is a space to help those with food sensitivities track exactly which foods may be making them feel ill, and which foods feel healthy and safe to consume. Many food tracking apps put an emphasis on tracking calories, serving sizes and the user’s weight, rather than focusing on the importance of how the food makes the user feel. Meanwhile, food allergy and sensitivity tests can cost up to hundreds of dollars. Snackr Trackr is designed with the belief that every body is different, and the mission to create a safe, personalized, affordable space for all of our users’ nutrition tracking needs.
+[Snackr Trackr](https://snackr-trackr.herokuapp.com) is a space to help those with food sensitivities track exactly which foods may be making them feel ill, and which foods feel healthy and safe to consume. Many food tracking apps put an emphasis on tracking calories, serving sizes and the user’s weight, rather than focusing on the importance of how the food makes the user feel. Meanwhile, food allergy and sensitivity tests can cost up to hundreds of dollars. Snackr Trackr is designed with the belief that every body is different, and the mission to create a safe, personalized, affordable space for all of our users’ nutrition tracking needs.
 
 This app is built using a service oriented architecture. For a more detailed explanation of the endpoints used, please visit our [backend repo](https://github.com/RowanDW/snackr_backend).
 
