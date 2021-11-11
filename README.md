@@ -40,7 +40,6 @@
 
 #### Languages
 ![Ruby][ruby-badge]
-![ActiveRecord][activerecord-badge]
 ![HTML5][html5-badge]
 ![CSS3][css3-badge]
 
