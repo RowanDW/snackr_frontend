@@ -3,7 +3,7 @@
 
 ## Table of contents
 - [Overview](#overview)
-- [Example wireframes](#example-wireframes)
+- [App Screenshots](#app-screenshots)
 - [Technologies](#technologies)
 - [Contributors](#contributors)
 
@@ -11,13 +11,16 @@
 
 [Snackr](https://snackr-trackr.herokuapp.com) is a food tracking app that rates users' experience after meals. The app is built using a service oriented architecture. For a more detailed explanation of the endpoints used, please visit our [backend repo](https://github.com/RowanDW/snackr_backend).
 
-### Example wireframes
-![Root Page](https://user-images.githubusercontent.com/826189/140439913-d8d5ec89-1777-4211-b308-c61fcc691112.png)
-![Dashboard](https://user-images.githubusercontent.com/826189/140439956-63e892eb-7049-4d6d-ba3c-c67e55c03d50.png)
-![Rating Page](https://user-images.githubusercontent.com/826189/140439993-4034ff4f-fa99-4118-a034-168f1bcfb97f.png)
-![Search Page](https://user-images.githubusercontent.com/826189/140440017-d72514c9-ed1b-494e-85ae-75bdc473cbea.png)
-![Meal Page](https://user-images.githubusercontent.com/826189/140440026-a9572a54-445e-4503-ba7c-34ccbbd53b8a.png)
+### App Screenshots
+![Root Page](https://user-images.githubusercontent.com/83834410/141348948-510800d5-43b2-48d6-b154-84e57b4de557.png)
 
+![Dashboard](https://user-images.githubusercontent.com/83834410/141350428-4d2149c3-505f-495b-96f4-01d057c4c732.png)
+
+![Meal Page](https://user-images.githubusercontent.com/83834410/141350801-b6b7ab2c-914a-468e-a089-d55c3c37fecb.png)
+
+![Search Page](https://user-images.githubusercontent.com/83834410/141350627-065eea38-66f1-4d48-bc8c-9da1d8f9d46e.png)
+
+![Rating Page](https://user-images.githubusercontent.com/83834410/141350926-de978e43-5642-41c3-b935-85d86804a28f.png)
 ### Technologies
 
 #### Versions
@@ -25,38 +28,35 @@
 - Rails 5.2.5
 
 #### Development
-![Atom][atom-badge]
+![Ruby on Rails][ruby-on-rails-badge]
 ![Bootstrap][bootstrap-badge]
-![Figaro][figaro-badge]
 ![Git][git-badge]
-![GitHub][github-badge]
-![Markdown][markdown-badge]  
-![PostgreSQL][postgreSQL-badge]   
+![Atom][atom-badge]
+![Faraday][faraday-badge]
+![Figaro][figaro-badge]
 ![Postico][postico-badge]
 ![Postman][postman-badge]
 ![Rubocop][rubocop-badge]
-![Ruby on Rails][ruby-on-rails-badge]
 
 #### Languages
-![ActiveRecord][activerecord-badge]
-![CSS3][css3-badge]
-![HTML5][html5-badge]
 ![Ruby][ruby-badge]
+![ActiveRecord][activerecord-badge]
+![HTML5][html5-badge]
+![CSS3][css3-badge]
 
 #### Deployment
 ![Heroku][heroku-badge]
 ![Travis CI][travis-ci-badge]
-![Faraday][faraday-badge]
 
 #### Testing
-![Capybara][capybara-badge]
-![Launchy][launchy-badge]
-![Pry][pry-badge]
 ![RSpec][rspec-badge]
-![Shoulda Matchers][shoulda-matchers-badge]
 ![Simplecov][simplecov-badge]
 ![VCR][vcr-badge]
 ![Webmock][webmock-badge]
+![Pry][pry-badge]
+![Capybara][capybara-badge]
+![Launchy][launchy-badge]
+![Shoulda Matchers][shoulda-matchers-badge]
 
 #### Development Principles
 ![OOP][oop-badge]
@@ -91,14 +91,14 @@
 [github-badge]:           https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
 
 [atom-badge]:             https://img.shields.io/badge/Atom-66595C.svg?&style=flaste&logo=atom&logoColor=white
-[bootstrap-badge]:        https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[bootstrap-badge]:        https://img.shields.io/badge/Bootstrap-563D7C?style=fflat&logo=bootstrap&logoColor=white
 [figaro-badge]:           https://img.shields.io/badge/figaro-b81818.svg?&style=flaste&logo=rubygems&logoColor=white
 [git-badge]:              https://img.shields.io/badge/Git-F05032.svg?&style=flaste&logo=git&logoColor=white
 [github-badge]:           https://img.shields.io/badge/GitHub-181717.svg?&style=flaste&logo=github&logoColor=white
 [markdown-badge]:         https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white
 [postgreSQL-badge]:       https://img.shields.io/badge/PostgreSQL-4169E1.svg?&style=flaste&logo=postgresql&logoColor=white
 [postico-badge]:          https://img.shields.io/badge/postico-b81818.svg?&style=flaste&logo=rubygems&logoColor=white
-[postman-badge]:          https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white
+[postman-badge]:          https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=Postman&logoColor=white
 [rubocop-badge]:          https://img.shields.io/badge/rubocop-b81818.svg?&style=flaste&logo=rubygems&logoColor=white
 [ruby-on-rails-badge]:    https://img.shields.io/badge/Ruby%20On%20Rails-b81818.svg?&style=flat&logo=rubyonrails&logoColor=white
 
